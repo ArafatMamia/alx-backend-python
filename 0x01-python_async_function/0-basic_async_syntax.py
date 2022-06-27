@@ -1,12 +1,16 @@
 #!/user/bin/env python3
-"""
-create asynchrounous coroutine that generate random
-"""
+''' Description: asynchronous coroutine that takes in an integer argument
+                 (max_delay, with a default value of 10) named wait_random
+                 that waits for a random delay between 0 and max_delay
+                 (included and float value) seconds and eventually returns it
+    Arguments: max_delay: int = 10
+'''
 
 import asyncio
 import random
 
-async def wait_random(max_delay = 10):
-    """ wait random func that have max_delay paramater """
+async def wait_random(max_delay:int = 10) -> float:
+    ''' Wait up to max_delay seconds and then return length of delay '''
     rand = random.random() * max_delay
+    await asyncio.sleep(rand)
     return rand 
